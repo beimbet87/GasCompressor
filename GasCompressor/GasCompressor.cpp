@@ -1,5 +1,7 @@
 ﻿#include <iostream>
+#include <fstream>
 #include <cmath>
+#include <cstdlib>
 
 int main()
 {
