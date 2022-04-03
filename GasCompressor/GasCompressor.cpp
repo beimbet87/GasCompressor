@@ -3,6 +3,9 @@
 #include <cmath>
 #include <cstdlib>
 #include <algorithm>
+#include <windows.h>
+
+#pragma execution_character_set( "utf-8" )
 
 struct GasComponents {
     double methane          = 91.828; 
@@ -37,8 +40,10 @@ struct Pressure {
     }
 };
 
-int main()
-{
+int main() {
+
+    SetConsoleOutputCP(65001);
+
     // Характериста турбины ГТ-700-5 ------------------------------------
 
     GasComponents components;
