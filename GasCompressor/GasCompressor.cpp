@@ -20,7 +20,7 @@ public:
     double Re = 18000000.0;
     double A;
     double velocity;
-    
+
     double a = 190.0;
     double b = 230.0;
     double c = 680.0;
@@ -191,7 +191,7 @@ public:
         }
         else if (temperature == 293.15 && pressure == 0.1013) {
             methane.setDensity(0.669);
-            methane.setViscosity(1.102); 
+            methane.setViscosity(1.102);
             ethane.setDensity(1.264);
             ethane.setViscosity(0.940);
             propane.setDensity(1.872);
@@ -250,23 +250,23 @@ public:
     }
 
     double summ() {
-        return methane.getFraction() + ethane.getFraction() + propane.getFraction() + isobutane.getFraction() + 
-               normbutane.getFraction() + isopentane.getFraction() + normpentane.getFraction() + hexane.getFraction() + 
-               nitrogen.getFraction() + carbon_dioxide.getFraction() + oxygen.getFraction();
+        return methane.getFraction() + ethane.getFraction() + propane.getFraction() + isobutane.getFraction() +
+            normbutane.getFraction() + isopentane.getFraction() + normpentane.getFraction() + hexane.getFraction() +
+            nitrogen.getFraction() + carbon_dioxide.getFraction() + oxygen.getFraction();
     }
 
     double molecularMass() {
         return (methane.getFraction() * methane.getMolarMass() +
-                ethane.getFraction() * ethane.getMolarMass() +
-                propane.getFraction() * propane.getMolarMass() +
-                isobutane.getFraction() * isobutane.getMolarMass() +
-                normbutane.getFraction() * normbutane.getMolarMass() +
-                isopentane.getFraction() * isopentane.getMolarMass() +
-                normpentane.getFraction() * normpentane.getMolarMass() +
-                hexane.getFraction() * hexane.getMolarMass() +
-                nitrogen.getFraction() * nitrogen.getMolarMass() +
-                carbon_dioxide.getFraction() * carbon_dioxide.getMolarMass() +
-                oxygen.getFraction() * oxygen.getMolarMass()) / 100.0;
+            ethane.getFraction() * ethane.getMolarMass() +
+            propane.getFraction() * propane.getMolarMass() +
+            isobutane.getFraction() * isobutane.getMolarMass() +
+            normbutane.getFraction() * normbutane.getMolarMass() +
+            isopentane.getFraction() * isopentane.getMolarMass() +
+            normpentane.getFraction() * normpentane.getMolarMass() +
+            hexane.getFraction() * hexane.getMolarMass() +
+            nitrogen.getFraction() * nitrogen.getMolarMass() +
+            carbon_dioxide.getFraction() * carbon_dioxide.getMolarMass() +
+            oxygen.getFraction() * oxygen.getMolarMass()) / 100.0;
     }
 
     double getNormalDensity() {
@@ -334,7 +334,7 @@ int main()
     double k; // показатель адиабаты
     double kpdPol; // политропический КПД
     double Ni; // внутреняя мощность
-    
+
     ns = n / nn;
     Q_PR = Q_NO / ns;
     eps = pressure.compressionRatio();
@@ -345,21 +345,21 @@ int main()
 
     A1 = -0.39 + 2.03 / temperature.reduced + 3.16 / powf(temperature.reduced, 2.0) + 1.09 / powf(temperature.reduced, 3.0);
     A2 = 0.0423 - 0.1812 / temperature.reduced + 0.2124 / (temperature.reduced * temperature.reduced);
-        
+
     z = 1 + A1 * pressure.reduced + A2 * pressure.reduced * pressure.reduced;
 
-    std::cout << "Компонентный состав газа: " << components.summ()  << " %" << std::endl;
-    std::cout << "Молекулярная масса газа: " << components.molecularMass()  << " кг/моль" << std::endl;
-    std::cout << "Плотность газа при нормальных условиях: " << components.getNormalDensity()  << " м3/кмоль" << std::endl;
-    std::cout << "Газовая постоянная природного газа: " << components.getGasConstant()  << " Дж/(кг*К)" << std::endl;
-    std::cout << "Давление на входе: " << pressure.in  << " кг/см2" << std::endl;
-    std::cout << "Давление на выходе: " << pressure.out  << " кг/см2" << std::endl;
+    std::cout << "Компонентный состав газа: " << components.summ() << " %" << std::endl;
+    std::cout << "Молекулярная масса газа: " << components.molecularMass() << " кг/моль" << std::endl;
+    std::cout << "Плотность газа при нормальных условиях: " << components.getNormalDensity() << " м3/кмоль" << std::endl;
+    std::cout << "Газовая постоянная природного газа: " << components.getGasConstant() << " Дж/(кг*К)" << std::endl;
+    std::cout << "Давление на входе: " << pressure.in << " кг/см2" << std::endl;
+    std::cout << "Давление на выходе: " << pressure.out << " кг/см2" << std::endl;
 
     std::cout << "Коэффициент сжимаемости газа: " << z << std::endl;
-    
-    std::cout << "Степень сжатия: " << eps  << " " << std::endl;
-    
-    std::cout << "Показатель политропического процесса сжатия: " << m  << " " << std::endl;
+
+    std::cout << "Степень сжатия: " << eps << " " << std::endl;
+
+    std::cout << "Показатель политропического процесса сжатия: " << m << " " << std::endl;
 
     std::cout << "Объемный приведенный расход: " << Q_PR << std::endl;
     std::cout << "Относительные обороты: " << ns << std::endl;
